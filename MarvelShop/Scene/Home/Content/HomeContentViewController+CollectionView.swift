@@ -96,6 +96,10 @@ extension HomeContentViewController: UICollectionViewDataSource, UICollectionVie
         characterDidTappedPublisher.send(model)
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+
 }
 
 private enum Design {
@@ -104,7 +108,7 @@ private enum Design {
     static let horizontalMargin: CGFloat = 10
 
     static let cellWidth: CGFloat = 175
-    static let cellHeight: CGFloat = 250
+    static let cellHeight: CGFloat = 255
 
     static let minimumInterItemSpacing: CGFloat = 20
     static let cellMargin: CGFloat = 20
