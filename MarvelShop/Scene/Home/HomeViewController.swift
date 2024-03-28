@@ -60,7 +60,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Methods
 
     private func bind() {
-
+        
     }
 
     private func setup() {

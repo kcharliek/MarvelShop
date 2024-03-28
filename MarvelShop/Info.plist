@@ -19,5 +19,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>API_KEY_PUBLIC</key>
+	<string>$(API_KEY_PUBLIC)</string>
+	<key>API_KEY_PRIVATE</key>
+	<string>$(API_KEY_PRIVATE)</string>
 </dict>
 </plist>

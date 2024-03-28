@@ -1,0 +1,8 @@
+//
+//  Release.xcconfig
+//  MarvelShop
+//
+//  Created by Charlie
+//
+
+#include "./Secret.xcconfig"

@@ -71,6 +71,16 @@ final class HomeContentViewController: UIViewController {
     // MARK: - Methods
 
     private func bind() {
+        let request = SearchCharacterAPIRequest(query: "")
+        API.request(request)
+            .sink { completion in
+
+            } receiveValue: { response in
+                print("response: \(response)")
+            }
+            .store(in: &cancelBag)
+
+
         let output = viewModel.transform(
             .init(
                 viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
