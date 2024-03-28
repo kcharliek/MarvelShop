@@ -13,28 +13,54 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
 
     private let repository: HomeContentSearchRepositoryProtocol
 
+    private var cancelBag: Set<AnyCancellable> = .init()
+
     init(repository: HomeContentSearchRepositoryProtocol = HomeContentSearchRepository()) {
         self.repository = repository
     }
 
     func transform(_ input: HomeContentState.Input) -> HomeContentState.Output {
-
-        let items: AnyPublisher<[MCharacter], Never> = input.viewDidLoad
+        input.viewDidLoad
             .withUnretained(self)
-            .flatMap { (owner, _) in
-                owner.repository.searchCharacter("")
-                    .catch { _ in
-                        Empty<[MCharacter], Never>.init(completeImmediately: false)
-                    }
+            .sink { (owner, _) in
+                owner.repository.search("")
             }
-            .eraseToAnyPublisher()
+            .store(in: &cancelBag)
+
+        input.query
+            .withUnretained(self)
+            .sink { (owner, query) in
+                owner.repository.search(query)
+            }
+            .store(in: &cancelBag)
+
+        input.refresh
+            .withUnretained(self)
+            .sink { (owner, _) in
+                owner.repository.refresh()
+            }
+            .store(in: &cancelBag)
+
+        input.loadNext
+            .withUnretained(self)
+            .sink { (owner, _) in
+                owner.repository.loadNext()
+            }
+            .store(in: &cancelBag)
+
+        input.characterDidTapped
+            .withUnretained(self)
+            .sink { (owner, character) in
+                owner.repository.toggleFavorite(character.id)
+            }
+            .store(in: &cancelBag)
 
         return .init(
             presenting: .init(
                 shouldEnableSearch: Just<Bool>(true).eraseToAnyPublisher(),
-                characters: items,
-                isLoading: .empty(),
-                error: .empty()
+                characters: repository.characters,
+                isLoading: repository.isLoading,
+                error: repository.error
             ),
             routing: .init(route: .empty())
         )

@@ -56,8 +56,8 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
 
         label.font = Design.contentFont
         label.textColor = Design.contentTextColor
-        label.numberOfLines = 3
-        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textAlignment = .left
 
         return label
     }()
