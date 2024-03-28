@@ -24,7 +24,7 @@ extension HomeContentViewController {
                 itemWidth = Design.cellWidth
             } else {
                 interItemSpacing = Design.minimumInterItemSpacing
-                itemWidth = (collectionViewWidth - (Design.cellMargin * 2) - interItemSpacing) / 2
+                itemWidth = (collectionViewWidth - (Design.horizontalMargin * 2) - interItemSpacing) / 2
             }
 
             let itemSize: NSCollectionLayoutSize = .init(
@@ -43,9 +43,9 @@ extension HomeContentViewController {
 
             group.contentInsets = .init(
                 top: 0,
-                leading: Design.cellMargin,
+                leading: Design.horizontalMargin,
                 bottom: 0,
-                trailing: Design.cellMargin
+                trailing: Design.horizontalMargin
             )
             group.interItemSpacing = .fixed(interItemSpacing)
 
@@ -59,18 +59,42 @@ extension HomeContentViewController {
         let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: layout)
 
         collectionView.register(cellWithClass: CharacterCollectionViewCell.self)
+        collectionView.contentInset = .init(top: Design.verticalMargin, left: 0, bottom: Design.verticalMargin, right: 0)
 
         return collectionView
     }
 
 }
 
+extension HomeContentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        cachedModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        collectionView.dequeueReusableCell(withClass: CharacterCollectionViewCell.self, for: indexPath)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let model = cachedModels[safe: indexPath.item] else {
+            return
+        }
+        let _cell = cell as? CharacterCollectionViewCell
+        _cell?.setModel(model)
+    }
+
+}
+
 private enum Design {
 
-    static let cellWidth: CGFloat = 175
-    static let cellHeight: CGFloat = 270
+    static let verticalMargin: CGFloat = 20
+    static let horizontalMargin: CGFloat = 10
 
-    static let minimumInterItemSpacing: CGFloat = 10
+    static let cellWidth: CGFloat = 175
+    static let cellHeight: CGFloat = 280
+
+    static let minimumInterItemSpacing: CGFloat = 20
     static let cellMargin: CGFloat = 20
 
     static let loadMoreDistance: Int = 1

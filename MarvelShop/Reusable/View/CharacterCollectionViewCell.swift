@@ -46,6 +46,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
         label.font = Design.titleFont
         label.textColor = Design.titleTextColor
         label.numberOfLines = 1
+        label.setContentHuggingPriority(.required, for: .vertical)
 
         return label
     }()
@@ -55,7 +56,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
 
         label.font = Design.contentFont
         label.textColor = Design.contentTextColor
-        label.numberOfLines = 1
+        label.numberOfLines = 3
         label.textAlignment = .center
 
         return label
@@ -98,20 +99,28 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupSubviews() {
+        self.layer.cornerRadius = Design.cornerRadius
+        self.layer.masksToBounds = true
+        self.layer.borderColor = Design.borderColor.cgColor
+        self.layer.borderWidth = 1.0
+
         contentView.backgroundColor = .white
     }
 
     private func setupLayout() {
         contentView.addSubview(thumbnailImageView)
         thumbnailImageView.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
-            make.height.equalTo(thumbnailImageView.snp.width)
+            make.leading.top.equalToSuperview().offset(Design.imageMargin)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(thumbnailImageView.snp.width).multipliedBy(Design.imageRatio)
         }
 
         contentView.addSubview(infoStackView)
         infoStackView.snp.makeConstraints { make in
             make.top.equalTo(thumbnailImageView.snp.bottom).offset(Design.infoStackViewTopMargin)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(Design.infoStackViewHorizontalMargin)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
 
         infoStackView.addArrangedSubview(titleLabel)
@@ -122,10 +131,18 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
 
 private enum Design {
 
+    static let cornerRadius: CGFloat = 10
+
+    static let borderColor: UIColor = .lightGray
+
+    static let imageMargin: CGFloat = 10
+    static let imageRatio: CGFloat = 4/5
+
     static let infoStackViewSpacing: CGFloat = 3
     static let infoStackViewTopMargin: CGFloat = 15
+    static let infoStackViewHorizontalMargin: CGFloat = 10
 
-    static let titleFont: UIFont = .systemFont(ofSize: 19, weight: .bold)
+    static let titleFont: UIFont = .systemFont(ofSize: 17, weight: .bold)
     static let titleTextColor: UIColor = .black
 
     static let contentFont: UIFont = .systemFont(ofSize: 14, weight: .regular)

@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import Combine
 
 
 struct HomeContentFavoriteViewModel: HomeContentViewModelProtocol {
+    
     func transform(_ input: HomeContentState.Input) -> HomeContentState.Output {
         return .init(
             presenting: .init(
-                shouldEnableSearch: .empty(),
+                shouldEnableSearch: Just<Bool>(false).eraseToAnyPublisher(),
                 characters: .empty(),
                 isLoading: .empty(),
                 error: .empty()

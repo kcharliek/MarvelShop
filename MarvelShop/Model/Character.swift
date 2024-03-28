@@ -10,4 +10,25 @@ import Foundation
 
 struct MCharacter {
 
+    let id: Int
+    let name: String
+    let description: String
+    let thumbnailImageURLString: String
+
+}
+
+extension MCharacter: CharacterCollectionViewCellModel {
+
+    var title: String {
+        name
+    }
+    
+    var subtitle: String {
+        description
+    }
+    
+    var imageURLString: String {
+        thumbnailImageURLString
+    }
+
 }
