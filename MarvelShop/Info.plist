@@ -23,5 +23,10 @@
 	<string>$(API_KEY_PUBLIC)</string>
 	<key>API_KEY_PRIVATE</key>
 	<string>$(API_KEY_PRIVATE)</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

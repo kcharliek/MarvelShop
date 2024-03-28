@@ -82,6 +82,18 @@ extension HomeContentViewController: UICollectionViewDataSource, UICollectionVie
         }
         let _cell = cell as? CharacterCollectionViewCell
         _cell?.setModel(model)
+
+        let reachesBottom = indexPath.item == (self.collectionView(collectionView, numberOfItemsInSection: indexPath.section) - 1 - Design.loadMoreDistance)
+        if reachesBottom {
+            loadNextPublisher.send(())
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let model = cachedModels[safe: indexPath.item] else {
+            return
+        }
+        characterDidTappedPublisher.send(model)
     }
 
 }
@@ -92,7 +104,7 @@ private enum Design {
     static let horizontalMargin: CGFloat = 10
 
     static let cellWidth: CGFloat = 175
-    static let cellHeight: CGFloat = 280
+    static let cellHeight: CGFloat = 250
 
     static let minimumInterItemSpacing: CGFloat = 20
     static let cellMargin: CGFloat = 20

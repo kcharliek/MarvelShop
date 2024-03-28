@@ -30,6 +30,8 @@ final class HomeContentViewController: UIViewController {
         return _searchBar
     }()
     private lazy var collectionView: UICollectionView = makeCollectionView()
+    private let loadingIndicator: UIActivityIndicatorView = .init(style: .large)
+    private let refreshControl = UIRefreshControl()
 
     // Data
     private let viewModel: HomeContentViewModelProtocol
@@ -71,16 +73,6 @@ final class HomeContentViewController: UIViewController {
     // MARK: - Methods
 
     private func bind() {
-        let request = SearchCharacterAPIRequest(query: "")
-        API.request(request)
-            .sink { completion in
-
-            } receiveValue: { response in
-                print("response: \(response)")
-            }
-            .store(in: &cancelBag)
-
-
         let output = viewModel.transform(
             .init(
                 viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
@@ -107,6 +99,34 @@ final class HomeContentViewController: UIViewController {
                 self.collectionView.reloadData()
             }
             .store(in: &cancelBag)
+
+        output.presenting
+            .isLoading
+            .withUnretained(self)
+            .receive(on: DispatchQueue.main)
+            .sink { (owner, isLoading) in
+                if isLoading {
+                    owner.loadingIndicator.startAnimating()
+                } else {
+                    if owner.refreshControl.isRefreshing {
+                        owner.refreshControl.endRefreshing()
+                    }
+                    owner.loadingIndicator.stopAnimating()
+                }
+            }
+            .store(in: &cancelBag)
+
+//        output.presenting
+//            .isLoading
+//            .filter { $0 == false }
+//            .withUnretained(self)
+//            .receive(on: DispatchQueue.main)
+//            .filter { $0.0.refreshControl.isRefreshing }
+//            .delay(for: 0.5, scheduler: DispatchQueue.main)
+//            .sink { (owner, _) in
+//                owner.refreshControl.endRefreshing()
+//            }
+//            .store(in: &cancelBag)
     }
 
     private func setup() {
@@ -120,8 +140,18 @@ final class HomeContentViewController: UIViewController {
     }
 
     private func setupCollectionView() {
+        searchBar.delegate = self
+
         collectionView.dataSource = self
         collectionView.delegate = self
+
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlTriggered), for: .valueChanged)
+    }
+
+    @objc
+    private func refreshControlTriggered() {
+        refreshPublisher.send(())
     }
 
     private func setupLayout() {
@@ -138,6 +168,20 @@ final class HomeContentViewController: UIViewController {
         }
 
         mainStackView.addArrangedSubview(collectionView)
+
+        view.addSubview(loadingIndicator)
+        loadingIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        loadingIndicator.hidesWhenStopped = true
+    }
+
+}
+
+extension HomeContentViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        queryPublisher.send(searchBar.text ?? "")
     }
 
 }
