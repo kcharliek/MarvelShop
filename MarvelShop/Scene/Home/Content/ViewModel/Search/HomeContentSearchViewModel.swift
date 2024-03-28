@@ -28,6 +28,8 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
             .store(in: &cancelBag)
 
         input.query
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .filter { $0.isEmpty || $0.count >= 2 }
             .withUnretained(self)
             .sink { (owner, query) in
                 owner.repository.search(query)
@@ -67,4 +69,3 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
     }
 
 }
-

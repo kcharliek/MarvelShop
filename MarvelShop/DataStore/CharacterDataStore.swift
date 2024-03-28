@@ -1,5 +1,5 @@
 //
-//  CharacterDataStore.swift
+//  SearchCharacterDataStore.swift
 //  MarvelShop
 //
 //  Created by Charlie
@@ -9,31 +9,34 @@ import Foundation
 import Combine
 
 
-protocol CharacterDataStoreProtocol {
+typealias SearchCharacterResult = (items: [MCharacter], hasNext: Bool)
 
-    func searchCharacter(query: String, page: Int) -> AnyPublisher<[MCharacter], Error>
+protocol SearchCharacterDataStoreProtocol {
+
+    func searchCharacter(query: String, page: Int) -> AnyPublisher<SearchCharacterResult, Error>
 
 }
 
-enum CharacterDataStoreError: Error {
+enum SearchCharacterDataStoreError: Error {
 
     case unknown
 
 }
 
-final class CharacterDataStore: CharacterDataStoreProtocol {
+final class SearchCharacterDataStore: SearchCharacterDataStoreProtocol {
 
-    private let size: Int = 30
+    private let size: Int = 20
 
-    func searchCharacter(query: String, page: Int) -> AnyPublisher<[MCharacter], Error> {
+    func searchCharacter(query: String, page: Int) -> AnyPublisher<SearchCharacterResult, Error> {
         let request = SearchCharacterAPIRequest(query: query, page: page, size: size)
 
         return API.request(request)
             .tryMap {
                 if $0.code == 200, let data = $0.data {
-                    return data.results.map { MCharacter.init(response: $0) }
+                    let hasNext = data.offset + data.count < data.total
+                    return (items: data.results.map { MCharacter.init(response: $0) }, hasNext: hasNext)
                 } else {
-                    throw CharacterDataStoreError.unknown
+                    throw SearchCharacterDataStoreError.unknown
                 }
             }
             .eraseToAnyPublisher()

@@ -26,6 +26,7 @@ final class HomeContentViewController: UIViewController {
         let _searchBar = UISearchBar()
 
         _searchBar.placeholder = "마블 영웅 이름을 입력하시오."
+        _searchBar.returnKeyType = .done
 
         return _searchBar
     }()
@@ -115,18 +116,6 @@ final class HomeContentViewController: UIViewController {
                 }
             }
             .store(in: &cancelBag)
-
-//        output.presenting
-//            .isLoading
-//            .filter { $0 == false }
-//            .withUnretained(self)
-//            .receive(on: DispatchQueue.main)
-//            .filter { $0.0.refreshControl.isRefreshing }
-//            .delay(for: 0.5, scheduler: DispatchQueue.main)
-//            .sink { (owner, _) in
-//                owner.refreshControl.endRefreshing()
-//            }
-//            .store(in: &cancelBag)
     }
 
     private func setup() {
@@ -180,8 +169,12 @@ final class HomeContentViewController: UIViewController {
 
 extension HomeContentViewController: UISearchBarDelegate {
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        queryPublisher.send(searchText)
+    }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        queryPublisher.send(searchBar.text ?? "")
+        searchBar.resignFirstResponder()
     }
 
 }
