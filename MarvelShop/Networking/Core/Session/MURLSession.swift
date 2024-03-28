@@ -48,7 +48,7 @@ final class MURLSession: Session {
         }
     }
 
-    private func makeURLRequest(urlString: String, method: HTTPMethod, parameters: [String : Any], headers: [String : String]) throws -> URLRequest {
+    func makeURLRequest(urlString: String, method: HTTPMethod, parameters: [String : Any], headers: [String : String]) throws -> URLRequest {
         let url = try makeURL(urlString: urlString, method: method, parameters: parameters)
 
         var urlRequest = URLRequest(url: url)

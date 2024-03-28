@@ -22,6 +22,7 @@
 		C4086D302BB56A76006C6633 /* SearchCharacterAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D252BB56A76006C6633 /* SearchCharacterAPIRequest.swift */; };
 		C4086D392BB574D4006C6633 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D382BB574D4006C6633 /* Secret.swift */; };
 		C4086D472BB58781006C6633 /* MarvelShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D462BB58781006C6633 /* MarvelShopTests.swift */; };
+		C4086D4F2BB5884F006C6633 /* MURLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */; };
 		C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20762BB530E600D5DF65 /* AppDelegate.swift */; };
 		C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20782BB530E600D5DF65 /* SceneDelegate.swift */; };
 		C47C20802BB530E700D5DF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47C207F2BB530E700D5DF65 /* Assets.xcassets */; };
@@ -73,6 +74,8 @@
 		C4086D3F2BB57BD2006C6633 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		C4086D442BB58781006C6633 /* MarvelShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4086D462BB58781006C6633 /* MarvelShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelShopTests.swift; sourceTree = "<group>"; };
+		C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MURLSessionTests.swift; sourceTree = "<group>"; };
+		C4086D522BB58D5C006C6633 /* MarvelShop.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MarvelShop.xctestplan; sourceTree = "<group>"; };
 		C47C20732BB530E600D5DF65 /* MarvelShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C20762BB530E600D5DF65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47C20782BB530E600D5DF65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,9 +217,18 @@
 		C4086D452BB58781006C6633 /* MarvelShopTests */ = {
 			isa = PBXGroup;
 			children = (
+				C4086D4D2BB587D8006C6633 /* Networking */,
 				C4086D462BB58781006C6633 /* MarvelShopTests.swift */,
 			);
 			path = MarvelShopTests;
+			sourceTree = "<group>";
+		};
+		C4086D4D2BB587D8006C6633 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		C47C206A2BB530E600D5DF65 = {
@@ -250,6 +262,7 @@
 				C47C20B32BB53AA800D5DF65 /* Extension */,
 				C4B021792BB53DB300AC7A8B /* Resource */,
 				C47C20842BB530E700D5DF65 /* Info.plist */,
+				C4086D522BB58D5C006C6633 /* MarvelShop.xctestplan */,
 			);
 			path = MarvelShop;
 			sourceTree = "<group>";
@@ -490,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4086D4F2BB5884F006C6633 /* MURLSessionTests.swift in Sources */,
 				C4086D472BB58781006C6633 /* MarvelShopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
