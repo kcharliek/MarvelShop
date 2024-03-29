@@ -22,7 +22,10 @@
 		C4086D302BB56A76006C6633 /* SearchCharacterAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D252BB56A76006C6633 /* SearchCharacterAPIRequest.swift */; };
 		C4086D392BB574D4006C6633 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D382BB574D4006C6633 /* Secret.swift */; };
 		C4086D4F2BB5884F006C6633 /* MURLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */; };
-		C4086D542BB593D7006C6633 /* CharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D532BB593D7006C6633 /* CharacterDataStore.swift */; };
+		C4086D542BB593D7006C6633 /* SearchCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D532BB593D7006C6633 /* SearchCharacterDataStore.swift */; };
+		C4086D5C2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D5B2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift */; };
+		C4086D5F2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */; };
+		C4086D612BB654B0006C6633 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D602BB654B0006C6633 /* Defaults.swift */; };
 		C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20762BB530E600D5DF65 /* AppDelegate.swift */; };
 		C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20782BB530E600D5DF65 /* SceneDelegate.swift */; };
 		C47C20802BB530E700D5DF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47C207F2BB530E700D5DF65 /* Assets.xcassets */; };
@@ -75,7 +78,10 @@
 		C4086D442BB58781006C6633 /* MarvelShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MURLSessionTests.swift; sourceTree = "<group>"; };
 		C4086D522BB58D5C006C6633 /* MarvelShop.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MarvelShop.xctestplan; sourceTree = "<group>"; };
-		C4086D532BB593D7006C6633 /* CharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataStore.swift; sourceTree = "<group>"; };
+		C4086D532BB593D7006C6633 /* SearchCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDataStore.swift; sourceTree = "<group>"; };
+		C4086D5B2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteCharacterDataStore.swift; sourceTree = "<group>"; };
+		C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharacterDataStoreProtocol.swift; sourceTree = "<group>"; };
+		C4086D602BB654B0006C6633 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		C47C20732BB530E600D5DF65 /* MarvelShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C20762BB530E600D5DF65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47C20782BB530E600D5DF65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +152,8 @@
 		C4086D172BB56A66006C6633 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				C4086D532BB593D7006C6633 /* CharacterDataStore.swift */,
+				C4086D5D2BB65402006C6633 /* FavoriteCharacterDataStore */,
+				C4086D532BB593D7006C6633 /* SearchCharacterDataStore.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -229,6 +236,15 @@
 				C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		C4086D5D2BB65402006C6633 /* FavoriteCharacterDataStore */ = {
+			isa = PBXGroup;
+			children = (
+				C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */,
+				C4086D5B2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift */,
+			);
+			path = FavoriteCharacterDataStore;
 			sourceTree = "<group>";
 		};
 		C47C206A2BB530E600D5DF65 = {
@@ -346,6 +362,7 @@
 			children = (
 				C47C20A92BB539A600D5DF65 /* View */,
 				C4086D382BB574D4006C6633 /* Secret.swift */,
+				C4086D602BB654B0006C6633 /* Defaults.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -520,21 +537,24 @@
 				C4086D152BB5502C006C6633 /* Collection+Extensions.swift in Sources */,
 				C4086D2E2BB56A76006C6633 /* MarvelAPIRequest.swift in Sources */,
 				C47C20A72BB537D500D5DF65 /* HomeContentViewController+CollectionView.swift in Sources */,
+				C4086D5F2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift in Sources */,
 				C47C20A12BB5350400D5DF65 /* HomeContentSearchRepository.swift in Sources */,
 				C47C209F2BB5347200D5DF65 /* Character.swift in Sources */,
 				C47C208C2BB5321B00D5DF65 /* RootRouter.swift in Sources */,
 				C47C20972BB5334300D5DF65 /* HomeContentSearchViewModel.swift in Sources */,
-				C4086D542BB593D7006C6633 /* CharacterDataStore.swift in Sources */,
+				C4086D542BB593D7006C6633 /* SearchCharacterDataStore.swift in Sources */,
 				C4086D2B2BB56A76006C6633 /* APIRequest.swift in Sources */,
 				C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */,
 				C47C20AB2BB539B300D5DF65 /* CharacterCollectionViewCell.swift in Sources */,
 				C47C20922BB532A600D5DF65 /* HomeContentViewController.swift in Sources */,
 				C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */,
 				C4086D302BB56A76006C6633 /* SearchCharacterAPIRequest.swift in Sources */,
+				C4086D612BB654B0006C6633 /* Defaults.swift in Sources */,
 				C47C20992BB5334900D5DF65 /* HomeContentFavoriteViewModel.swift in Sources */,
 				C4086D0A2BB55018006C6633 /* UIColor+Extensions.swift in Sources */,
 				C4086D132BB5502C006C6633 /* String+Extensions.swift in Sources */,
 				C47C20A32BB5351000D5DF65 /* HomeContentFavoriteRepository.swift in Sources */,
+				C4086D5C2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift in Sources */,
 				C47C208F2BB5323900D5DF65 /* HomeViewController.swift in Sources */,
 				C4086D2C2BB56A76006C6633 /* Session.swift in Sources */,
 				C47C209C2BB5337F00D5DF65 /* HomeContentState.swift in Sources */,
