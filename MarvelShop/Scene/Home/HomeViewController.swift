@@ -73,7 +73,20 @@ final class HomeViewController: UIViewController {
 
         _tabBarController.addChild(searchContentViewController)
         _tabBarController.addChild(favoriteContentViewController)
+
+#if DEBUG
+        navigationItem.rightBarButtonItem = .init(title: "DEBUG", style: .plain, target: self, action: #selector(debugButtonDidTapped))
+#endif
     }
+
+#if DEBUG
+    @objc
+    private func debugButtonDidTapped() {
+        let vc = DebugViewController()
+        let navi = UINavigationController(rootViewController: vc)
+        self.present(navi, animated: true)
+    }
+#endif
 
     private func setupLayout() {
         self.addChild(_tabBarController)
