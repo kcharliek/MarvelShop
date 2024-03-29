@@ -87,10 +87,11 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
         titleLabel.sizeToFit()
     }
 
-    func setModel(_ model: CharacterCollectionViewCellModel) {
+    func setModel(_ model: CharacterCollectionViewCellModel, isFavorite: Bool) {
         thumbnailImageView.setImage(model.imageURLString)
         titleLabel.text = model.title
         subtitleLabel.text = model.subtitle
+        contentView.backgroundColor = isFavorite ? Design.favoriteBackgroundColor : .white
     }
 
     private func setup() {
@@ -147,5 +148,7 @@ private enum Design {
 
     static let contentFont: UIFont = .systemFont(ofSize: 14, weight: .regular)
     static let contentTextColor: UIColor = .darkGray
+
+    static let favoriteBackgroundColor: UIColor = .lightGray
 
 }

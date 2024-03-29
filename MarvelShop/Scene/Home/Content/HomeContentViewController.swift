@@ -36,7 +36,8 @@ final class HomeContentViewController: UIViewController {
 
     // Data
     private let viewModel: HomeContentViewModelProtocol
-    private(set) var cachedModels: [MCharacter] = []
+    private(set) var cachedCharacters: [MCharacter] = []
+    private(set) var cachedFavoriteCharacterIds: [Int] = []
 
     // Stream
     private let viewDidLoadPublisher: PassthroughSubject<Void, Never> = .init()
@@ -92,14 +93,17 @@ final class HomeContentViewController: UIViewController {
             }
             .store(in: &cancelBag)
 
-        output.presenting
-            .characters
-            .receive(on: DispatchQueue.main)
-            .sink { [unowned self] in
-                self.cachedModels = $0
-                self.collectionView.reloadData()
-            }
-            .store(in: &cancelBag)
+        Publishers.CombineLatest(
+            output.presenting.characters,
+            output.presenting.favoriteCharacterIds
+        )
+        .receive(on: DispatchQueue.main)
+        .sink { [unowned self] (characters, favoriteCharacterIds) in
+            self.cachedCharacters = characters
+            self.cachedFavoriteCharacterIds = favoriteCharacterIds
+            self.collectionView.reloadData()
+        }
+        .store(in: &cancelBag)
 
         output.presenting
             .isLoading

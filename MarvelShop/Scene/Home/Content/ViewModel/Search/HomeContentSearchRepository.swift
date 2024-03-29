@@ -12,6 +12,7 @@ import Combine
 protocol HomeContentSearchRepositoryProtocol {
 
     var characters: AnyPublisher<[MCharacter], Never> { get }
+    var favoriteCharacterIds: AnyPublisher<[Int], Never> { get }
     var isLoading: AnyPublisher<Bool, Never> { get }
     var error: AnyPublisher<Error, Never> { get }
 
@@ -26,37 +27,47 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
 
     // MARK: - Properties
 
+    // Stream
     var characters: AnyPublisher<[MCharacter], Never> {
         _characters
             .map { $0.sorted(by: { $0.key < $1.key }).flatMap { $1 } }
             .eraseToAnyPublisher()
     }
-
+    var favoriteCharacterIds: AnyPublisher<[Int], Never> {
+        _favoriteCharacterIds.eraseToAnyPublisher()
+    }
     var isLoading: AnyPublisher<Bool, Never> {
         loadingCount
             .map { $0 > 0 }
             .removeDuplicates()
             .eraseToAnyPublisher()
     }
-
     var error: AnyPublisher<Error, Never> {
         _error.eraseToAnyPublisher()
     }
-
-    private let dataStore: SearchCharacterDataStoreProtocol
-    private var query: String = ""
-    private var currentPage: Int = 0
-    private var hasNext: Bool = true
-
     private let _characters: CurrentValueSubject<[Int: [MCharacter]], Never> = .init([:])
+    private let _favoriteCharacterIds: PassthroughSubject<[Int], Never> = .init()
     private let loadingCount: CurrentValueSubject<Int, Never> = .init(0)
     private let _error: PassthroughSubject<Error, Never> = .init()
     private var cancelBag: Set<AnyCancellable> = .init()
 
+    // DataStore
+    private let dataStore: SearchCharacterDataStoreProtocol
+    private let favoriteDataStore: FavoriteCharacterDataStoreProtocol
+
+    // State
+    private var query: String = ""
+    private var currentPage: Int = 0
+    private var hasNext: Bool = true
+
     // MARK: - Initializer
 
-    init(dataStore: SearchCharacterDataStoreProtocol = SearchCharacterDataStore()) {
+    init(
+        dataStore: SearchCharacterDataStoreProtocol = SearchCharacterDataStore(),
+        favoriteDataStore: FavoriteCharacterDataStoreProtocol = UserDefaultsFavoriteCharacterDataStore()
+    ) {
         self.dataStore = dataStore
+        self.favoriteDataStore = favoriteDataStore
     }
 
     // MARK: - Methods
@@ -74,7 +85,8 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
         currentPage = 0
         loadingCount.send(1)
 
-        _search()
+        requestSearch()
+        requestFavorite()
     }
 
     func loadNext() {
@@ -85,14 +97,19 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
         currentPage += 1
         loadingCount.send(loadingCount.value + 1)
 
-        _search()
+        requestSearch()
     }
 
     func toggleFavorite(_ id: Int) {
-        
+        favoriteDataStore.toggleFavorite(id)
+        requestFavorite()
     }
 
-    private func _search() {
+    private func requestFavorite() {
+        _favoriteCharacterIds.send(favoriteDataStore.fetchFavoriteCharacterIds())
+    }
+
+    private func requestSearch() {
         let page = currentPage
 
         dataStore.searchCharacter(query: self.query, page: page)

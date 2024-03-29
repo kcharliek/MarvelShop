@@ -61,6 +61,7 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
             presenting: .init(
                 shouldEnableSearch: Just<Bool>(true).eraseToAnyPublisher(),
                 characters: repository.characters,
+                favoriteCharacterIds: repository.favoriteCharacterIds,
                 isLoading: repository.isLoading,
                 error: repository.error
             ),

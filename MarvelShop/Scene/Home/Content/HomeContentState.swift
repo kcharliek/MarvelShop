@@ -30,6 +30,7 @@ enum HomeContentState {
 
             let shouldEnableSearch: AnyPublisher<Bool, Never>
             let characters: AnyPublisher<[MCharacter], Never>
+            let favoriteCharacterIds: AnyPublisher<[Int], Never>
             let isLoading: AnyPublisher<Bool, Never>
             let error: AnyPublisher<Error, Never>
 

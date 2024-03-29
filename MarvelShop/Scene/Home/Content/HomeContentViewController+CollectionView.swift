@@ -69,7 +69,7 @@ extension HomeContentViewController {
 extension HomeContentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cachedModels.count
+        cachedCharacters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,11 +77,13 @@ extension HomeContentViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let model = cachedModels[safe: indexPath.item] else {
+        guard let model = cachedCharacters[safe: indexPath.item] else {
             return
         }
+        let isFavorite = cachedFavoriteCharacterIds.contains(model.id)
+
         let _cell = cell as? CharacterCollectionViewCell
-        _cell?.setModel(model)
+        _cell?.setModel(model, isFavorite: isFavorite)
 
         let reachesBottom = indexPath.item == (self.collectionView(collectionView, numberOfItemsInSection: indexPath.section) - 1 - Design.loadMoreDistance)
         if reachesBottom {
@@ -90,7 +92,7 @@ extension HomeContentViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let model = cachedModels[safe: indexPath.item] else {
+        guard let model = cachedCharacters[safe: indexPath.item] else {
             return
         }
         characterDidTappedPublisher.send(model)

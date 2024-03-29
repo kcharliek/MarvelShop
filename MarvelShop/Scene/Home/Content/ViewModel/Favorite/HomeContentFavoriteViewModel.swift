@@ -15,7 +15,8 @@ struct HomeContentFavoriteViewModel: HomeContentViewModelProtocol {
         return .init(
             presenting: .init(
                 shouldEnableSearch: Just<Bool>(false).eraseToAnyPublisher(),
-                characters: .empty(),
+                characters: .empty(), 
+                favoriteCharacterIds: .empty(),
                 isLoading: .empty(),
                 error: .empty()
             ),
