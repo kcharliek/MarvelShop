@@ -6,41 +6,45 @@
 //
 
 import Foundation
+import Combine
 
 
 final class UserDefaultsFavoriteCharacterDataStore: FavoriteCharacterDataStoreProtocol {
 
-    func fetchFavoriteCharacterIds() -> [Int] {
-        Defaults.favoriteCharacterIds
+    var favoriteCharacters: AnyPublisher<[MCharacter], Never> {
+        Defaults.shared.favoriteCharactersPublisher
     }
 
-    func isFavorite(_ characterId: Int) -> Bool {
-        Defaults.favoriteCharacterIds.contains(characterId)
+    func isFavorite(_ character: MCharacter) -> Bool {
+        let favoriteCharacterIds = fetchFavoriteCharacters().map { $0.id }
+        return favoriteCharacterIds.contains(character.id)
     }
 
-    func toggleFavorite(_ characterId: Int) {
-        let toggled = !isFavorite(characterId)
-        setFavorite(toggled, characterId: characterId)
+    func toggleFavorite(_ character: MCharacter) {
+        let toggled = !isFavorite(character)
+        setFavorite(toggled, character: character)
     }
 
-    func setFavorite(_ isFavorite: Bool, characterId: Int) {
-        let oldValue = Defaults.favoriteCharacterIds
-
+    func setFavorite(_ isFavorite: Bool, character: MCharacter) {
         if isFavorite {
-            guard oldValue.contains(characterId) == false else {
+            guard self.isFavorite(character) == false else {
                 return
             }
-            var newValue = oldValue
-            newValue.append(characterId)
-            Defaults.favoriteCharacterIds = newValue
+            var newValue = fetchFavoriteCharacters()
+            newValue.append(character)
+            Defaults.shared.setFavoriteCharacters(newValue.suffix(Constant.maximumFavoriteCount))
         } else {
-            guard oldValue.contains(characterId) else {
+            guard self.isFavorite(character) else {
                 return
             }
-            var newValue = oldValue
-            newValue.removeAll(where: { $0 == characterId })
-            Defaults.favoriteCharacterIds = newValue
+            var newValue = fetchFavoriteCharacters()
+            newValue.removeAll(where: { $0.id == character.id })
+            Defaults.shared.setFavoriteCharacters(newValue)
         }
+    }
+
+    private func fetchFavoriteCharacters() -> [MCharacter] {
+        Defaults.shared.fetchFavoriteCharacters()
     }
 
 }

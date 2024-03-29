@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import Combine
 
 
 protocol FavoriteCharacterDataStoreProtocol {
 
-    func fetchFavoriteCharacterIds() -> [Int]
+    var favoriteCharacters: AnyPublisher<[MCharacter], Never> { get}
 
-    func isFavorite(_ characterId: Int) -> Bool
+    func isFavorite(_ character: MCharacter) -> Bool
 
-    func toggleFavorite(_ characterId: Int)
+    func toggleFavorite(_ character: MCharacter)
 
-    func setFavorite(_ isFavorite: Bool, characterId: Int)
+    func setFavorite(_ isFavorite: Bool, character: MCharacter)
 
 }

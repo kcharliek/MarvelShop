@@ -33,6 +33,15 @@ final class HomeContentViewController: UIViewController {
     private lazy var collectionView: UICollectionView = makeCollectionView()
     private let loadingIndicator: UIActivityIndicatorView = .init(style: .large)
     private let refreshControl = UIRefreshControl()
+    private let emptyLabel: UILabel = {
+        let label = UILabel()
+
+        label.text = "조회된 내용이 없습니다."
+        label.textColor = Design.emptyLabelTextColor
+        label.font = Design.emptyLabelFont
+
+        return label
+    }()
 
     // Data
     private let viewModel: HomeContentViewModelProtocol
@@ -93,6 +102,14 @@ final class HomeContentViewController: UIViewController {
             }
             .store(in: &cancelBag)
 
+        output.presenting
+            .shouldEnableRefresh
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] shows in
+                shows ? self.setupRefreshControl() : ()
+            }
+            .store(in: &cancelBag)
+
         Publishers.CombineLatest(
             output.presenting.characters,
             output.presenting.favoriteCharacterIds
@@ -101,6 +118,8 @@ final class HomeContentViewController: UIViewController {
         .sink { [unowned self] (characters, favoriteCharacterIds) in
             self.cachedCharacters = characters
             self.cachedFavoriteCharacterIds = favoriteCharacterIds
+
+            self.emptyLabel.isHidden = (characters.isEmpty == false)
             self.collectionView.reloadData()
         }
         .store(in: &cancelBag)
@@ -137,7 +156,9 @@ final class HomeContentViewController: UIViewController {
 
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
 
+    private func setupRefreshControl() {
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshControlTriggered), for: .valueChanged)
     }
@@ -167,6 +188,11 @@ final class HomeContentViewController: UIViewController {
             make.center.equalToSuperview()
         }
         loadingIndicator.hidesWhenStopped = true
+
+        view.addSubview(emptyLabel)
+        emptyLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
 
 }
@@ -186,5 +212,8 @@ extension HomeContentViewController: UISearchBarDelegate {
 private enum Design {
 
     static let searchBarHeight: CGFloat = 55
+
+    static let emptyLabelTextColor: UIColor = .lightGray
+    static let emptyLabelFont: UIFont = .systemFont(ofSize: 15)
 
 }

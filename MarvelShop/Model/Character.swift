@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct MCharacter {
+struct MCharacter: Codable {
 
     let id: Int
     let name: String

@@ -19,7 +19,7 @@ protocol HomeContentSearchRepositoryProtocol {
     func search(_ query: String)
     func refresh()
     func loadNext()
-    func toggleFavorite(_ id: Int)
+    func toggleFavorite(_ character: MCharacter)
 
 }
 
@@ -34,7 +34,9 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     var favoriteCharacterIds: AnyPublisher<[Int], Never> {
-        _favoriteCharacterIds.eraseToAnyPublisher()
+        favoriteDataStore.favoriteCharacters
+            .map { $0.map(\.id) }
+            .eraseToAnyPublisher()
     }
     var isLoading: AnyPublisher<Bool, Never> {
         loadingCount
@@ -86,7 +88,6 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
         loadingCount.send(1)
 
         requestSearch()
-        requestFavorite()
     }
 
     func loadNext() {
@@ -100,13 +101,8 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
         requestSearch()
     }
 
-    func toggleFavorite(_ id: Int) {
-        favoriteDataStore.toggleFavorite(id)
-        requestFavorite()
-    }
-
-    private func requestFavorite() {
-        _favoriteCharacterIds.send(favoriteDataStore.fetchFavoriteCharacterIds())
+    func toggleFavorite(_ character: MCharacter) {
+        favoriteDataStore.toggleFavorite(character)
     }
 
     private func requestSearch() {
