@@ -13,6 +13,8 @@ final class AppDelegate: NSObject {
 
     static var shared: AppDelegate!
 
+    var launchOptions: [UIApplication.LaunchOptionsKey: Any]!
+
 }
 
 extension AppDelegate: UIApplicationDelegate {
@@ -22,6 +24,11 @@ extension AppDelegate: UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         Self.shared = self
+        self.launchOptions = launchOptions
+
+#if ON_SAMPLE
+        print("🛠️🛠️ PROJECT IS RUNNING ON SAMPLE 🛠️🛠️")
+#endif
 
         return true
     }

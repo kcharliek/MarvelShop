@@ -54,23 +54,13 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
     private var cancelBag: Set<AnyCancellable> = .init()
 
     // DataStore
-    private let dataStore: SearchCharacterDataStoreProtocol
-    private let favoriteDataStore: FavoriteCharacterDataStoreProtocol
+    @Inject private var dataStore: SearchCharacterDataStoreProtocol
+    @Inject private var favoriteDataStore: FavoriteCharacterDataStoreProtocol
 
     // State
     private var query: String = ""
     private var currentPage: Int = 0
     private var hasNext: Bool = true
-
-    // MARK: - Initializer
-
-    init(
-        dataStore: SearchCharacterDataStoreProtocol = SearchCharacterDataStore(),
-        favoriteDataStore: FavoriteCharacterDataStoreProtocol = UserDefaultsFavoriteCharacterDataStore()
-    ) {
-        self.dataStore = dataStore
-        self.favoriteDataStore = favoriteDataStore
-    }
 
     // MARK: - Methods
 

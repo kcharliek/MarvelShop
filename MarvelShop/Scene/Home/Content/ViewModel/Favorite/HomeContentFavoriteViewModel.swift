@@ -11,13 +11,19 @@ import Combine
 
 final class HomeContentFavoriteViewModel: HomeContentViewModelProtocol {
 
+    // MARK: - Properties
+
     private let repository: HomeContentFavoriteRepositoryProtocol
 
     private var cancelBag: Set<AnyCancellable> = .init()
 
+    // MARK: - Initializer
+
     init(repository: HomeContentFavoriteRepositoryProtocol = HomeContentFavoriteRepository()) {
         self.repository = repository
     }
+
+    // MARK: - Methods
 
     func transform(_ input: HomeContentState.Input) -> HomeContentState.Output {
         input.characterDidTapped

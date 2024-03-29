@@ -1,5 +1,5 @@
 //
-//  UserDefaultsFavoriteCharacterDataStore.swift
+//  DefaultsFavoriteCharacterDataStore.swift
 //  MarvelShop
 //
 //  Created by Charlie
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 
-final class UserDefaultsFavoriteCharacterDataStore: FavoriteCharacterDataStoreProtocol {
+final class DefaultsFavoriteCharacterDataStore: FavoriteCharacterDataStoreProtocol {
 
     var favoriteCharacters: AnyPublisher<[MCharacter], Never> {
         Defaults.shared.favoriteCharactersPublisher

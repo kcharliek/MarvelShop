@@ -19,15 +19,15 @@ protocol HomeContentFavoriteRepositoryProtocol {
 
 final class HomeContentFavoriteRepository: HomeContentFavoriteRepositoryProtocol {
 
+    // MARK: - Properties
+
     var characters: AnyPublisher<[MCharacter], Never> {
         dataStore.favoriteCharacters
     }
 
-    private let dataStore: FavoriteCharacterDataStoreProtocol
+    @Inject private var dataStore: FavoriteCharacterDataStoreProtocol
 
-    init(dataStore: FavoriteCharacterDataStoreProtocol = UserDefaultsFavoriteCharacterDataStore()) {
-        self.dataStore = dataStore
-    }
+    // MARK: - Methods
 
     func removeFavorite(_ character: MCharacter) {
         dataStore.setFavorite(false, character: character)

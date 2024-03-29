@@ -11,13 +11,19 @@ import Combine
 
 final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
 
+    // MARK: - Properties
+
     private let repository: HomeContentSearchRepositoryProtocol
 
     private var cancelBag: Set<AnyCancellable> = .init()
 
+    // MARK: - Initializer
+
     init(repository: HomeContentSearchRepositoryProtocol = HomeContentSearchRepository()) {
         self.repository = repository
     }
+
+    // MARK: - Methods
 
     func transform(_ input: HomeContentState.Input) -> HomeContentState.Output {
         input.viewDidLoad
