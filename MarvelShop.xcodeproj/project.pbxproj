@@ -38,6 +38,12 @@
 		C4086DBB2BB69AEC006C6633 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086DBA2BB69AEC006C6633 /* InfoPlist.swift */; };
 		C4086DC62BB69FC5006C6633 /* SearchCharacterDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086DC52BB69FC5006C6633 /* SearchCharacterDataStoreProtocol.swift */; };
 		C4086DC82BB6A204006C6633 /* MockSearchCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086DC32BB69F94006C6633 /* MockSearchCharacterDataStore.swift */; };
+		C4086DCB2BB6AC32006C6633 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086DCA2BB6AC32006C6633 /* DebugViewController.swift */; };
+		C4086DCD2BB6AD73006C6633 /* DebugCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086DCC2BB6AD73006C6633 /* DebugCollectionViewCell.swift */; };
+		C46157272BB6B1640064B423 /* DebugNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157262BB6B1640064B423 /* DebugNetworkViewController.swift */; };
+		C46157292BB6B1A50064B423 /* NetworkHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157282BB6B1A50064B423 /* NetworkHistory.swift */; };
+		C461572B2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461572A2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift */; };
+		C461572D2BB6B3080064B423 /* NetworkDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461572C2BB6B3080064B423 /* NetworkDebugger.swift */; };
 		C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20762BB530E600D5DF65 /* AppDelegate.swift */; };
 		C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20782BB530E600D5DF65 /* SceneDelegate.swift */; };
 		C47C20802BB530E700D5DF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47C207F2BB530E700D5DF65 /* Assets.xcassets */; };
@@ -105,6 +111,12 @@
 		C4086DBA2BB69AEC006C6633 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		C4086DC32BB69F94006C6633 /* MockSearchCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchCharacterDataStore.swift; sourceTree = "<group>"; };
 		C4086DC52BB69FC5006C6633 /* SearchCharacterDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDataStoreProtocol.swift; sourceTree = "<group>"; };
+		C4086DCA2BB6AC32006C6633 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
+		C4086DCC2BB6AD73006C6633 /* DebugCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCollectionViewCell.swift; sourceTree = "<group>"; };
+		C46157262BB6B1640064B423 /* DebugNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugNetworkViewController.swift; sourceTree = "<group>"; };
+		C46157282BB6B1A50064B423 /* NetworkHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHistory.swift; sourceTree = "<group>"; };
+		C461572A2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugNetworkiDetailViewController.swift; sourceTree = "<group>"; };
+		C461572C2BB6B3080064B423 /* NetworkDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDebugger.swift; sourceTree = "<group>"; };
 		C47C20732BB530E600D5DF65 /* MarvelShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C20762BB530E600D5DF65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47C20782BB530E600D5DF65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -303,6 +315,27 @@
 			path = SearchCharacter;
 			sourceTree = "<group>";
 		};
+		C4086DC92BB6AC21006C6633 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C46157252BB6B15A0064B423 /* Network */,
+				C4086DCA2BB6AC32006C6633 /* DebugViewController.swift */,
+				C4086DCC2BB6AD73006C6633 /* DebugCollectionViewCell.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		C46157252BB6B15A0064B423 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C46157282BB6B1A50064B423 /* NetworkHistory.swift */,
+				C46157262BB6B1640064B423 /* DebugNetworkViewController.swift */,
+				C461572A2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift */,
+				C461572C2BB6B3080064B423 /* NetworkDebugger.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C47C206A2BB530E600D5DF65 = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				C47C20902BB5329700D5DF65 /* Home */,
+				C4086DC92BB6AC21006C6633 /* Debug */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -591,8 +625,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46157272BB6B1640064B423 /* DebugNetworkViewController.swift in Sources */,
 				C4086D2A2BB56A76006C6633 /* API.swift in Sources */,
 				C4086D392BB574D4006C6633 /* Secret.swift in Sources */,
+				C4086DCB2BB6AC32006C6633 /* DebugViewController.swift in Sources */,
 				C4086D2D2BB56A76006C6633 /* MURLSession.swift in Sources */,
 				C47C20B62BB53AC500D5DF65 /* UIImageView+Extensions.swift in Sources */,
 				C4086D0B2BB55018006C6633 /* UICollectionView+Extensions.swift in Sources */,
@@ -603,17 +639,20 @@
 				C4086D2E2BB56A76006C6633 /* MarvelAPIRequest.swift in Sources */,
 				C47C20A72BB537D500D5DF65 /* HomeContentViewController+CollectionView.swift in Sources */,
 				C4086D5F2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift in Sources */,
+				C461572B2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift in Sources */,
 				C47C20A12BB5350400D5DF65 /* HomeContentSearchRepository.swift in Sources */,
 				C47C209F2BB5347200D5DF65 /* Character.swift in Sources */,
 				C47C208C2BB5321B00D5DF65 /* RootRouter.swift in Sources */,
 				C47C20972BB5334300D5DF65 /* HomeContentSearchViewModel.swift in Sources */,
 				C4086D542BB593D7006C6633 /* SearchCharacterDataStore.swift in Sources */,
+				C461572D2BB6B3080064B423 /* NetworkDebugger.swift in Sources */,
 				C4086D2B2BB56A76006C6633 /* APIRequest.swift in Sources */,
 				C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */,
 				C47C20AB2BB539B300D5DF65 /* CharacterCollectionViewCell.swift in Sources */,
 				C4086DC82BB6A204006C6633 /* MockSearchCharacterDataStore.swift in Sources */,
 				C47C20922BB532A600D5DF65 /* HomeContentViewController.swift in Sources */,
 				C4086D6C2BB68EE3006C6633 /* DI.swift in Sources */,
+				C4086DCD2BB6AD73006C6633 /* DebugCollectionViewCell.swift in Sources */,
 				C4086D732BB68F86006C6633 /* Inject.swift in Sources */,
 				C4086D792BB69187006C6633 /* DataStoreAssembly.swift in Sources */,
 				C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */,
@@ -628,6 +667,7 @@
 				C4086D5C2BB65318006C6633 /* DefaultsFavoriteCharacterDataStore.swift in Sources */,
 				C47C208F2BB5323900D5DF65 /* HomeViewController.swift in Sources */,
 				C4086D2C2BB56A76006C6633 /* Session.swift in Sources */,
+				C46157292BB6B1A50064B423 /* NetworkHistory.swift in Sources */,
 				C4086D7B2BB69380006C6633 /* NetworkingAssembly.swift in Sources */,
 				C47C209C2BB5337F00D5DF65 /* HomeContentState.swift in Sources */,
 				C4086D2F2BB56A76006C6633 /* SearchCharacterAPIResponse.swift in Sources */,

@@ -5,11 +5,11 @@
 //  Created by Charlie
 //
 
+#if ON_SAMPLE
+
 import Foundation
 import Combine
 
-
-#if ON_SAMPLE
 
 final class InMemoryFavoriteCharacterDataStore: FavoriteCharacterDataStoreProtocol {
 

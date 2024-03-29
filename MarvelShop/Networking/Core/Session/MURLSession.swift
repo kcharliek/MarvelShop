@@ -33,12 +33,19 @@ final class MURLSession: Session {
                 print("🚀🚀 Request Started: \(urlRequest) 🚀🚀")
             }
 
+            let startAt = Date()
+
             return Self.session
                 .dataTaskPublisher(for: urlRequest)
                 .map {
+                    let jsonString = $0.data.jsonString() ?? "NO JSON"
+
                     if verbose {
-                        print("⚡️⚡️ Response Received: \($0.data.jsonString() ?? "NO JSON") ⚡️⚡️")
+                        print("⚡️⚡️ Response Received: \(jsonString) ⚡️⚡️")
                     }
+#if DEBUG
+                    NetworkDebugger.shared.histories.append(.init(startAt: startAt, request: urlRequest, responseJSONString: jsonString))
+#endif
                     return $0.data
                 }
                 .mapError { MURLSessionError.urlError($0) }
@@ -110,7 +117,8 @@ private extension Data {
         else {
             return nil
         }
-        return String(decoding: jsonData, as: UTF8.self)
+
+        return String(data: jsonData, encoding: .utf8)
     }
 
 }
