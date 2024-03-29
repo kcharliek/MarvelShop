@@ -11,7 +11,7 @@ import Combine
 
 final class API {
 
-    private static let session: Session = MURLSession()
+    @Inject private static var session: Session
 
     static func request<Request: APIRequest>(_ request: Request, options: [SessionOption] = []) -> AnyPublisher<Request.APIResponse, Error> {
         let urlString: String = request.baseURLString + request.path

@@ -88,7 +88,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     }
 
     func setModel(_ model: CharacterCollectionViewCellModel, isFavorite: Bool) {
-        thumbnailImageView.setImage(model.imageURLString)
+        thumbnailImageView.setImage(model.imageURLString, placeholder: .character)
         titleLabel.text = model.title
         subtitleLabel.text = model.subtitle
         contentView.backgroundColor = isFavorite ? Design.favoriteBackgroundColor : .white
