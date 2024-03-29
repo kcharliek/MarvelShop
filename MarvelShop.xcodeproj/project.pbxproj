@@ -26,6 +26,8 @@
 		C4086D5C2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D5B2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift */; };
 		C4086D5F2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */; };
 		C4086D612BB654B0006C6633 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D602BB654B0006C6633 /* Defaults.swift */; };
+		C4086D632BB6633E006C6633 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D622BB6633E006C6633 /* UserDefaults.swift */; };
+		C4086D652BB67E72006C6633 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D642BB67E72006C6633 /* Constant.swift */; };
 		C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20762BB530E600D5DF65 /* AppDelegate.swift */; };
 		C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20782BB530E600D5DF65 /* SceneDelegate.swift */; };
 		C47C20802BB530E700D5DF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47C207F2BB530E700D5DF65 /* Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		C4086D5B2BB65318006C6633 /* UserDefaultsFavoriteCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteCharacterDataStore.swift; sourceTree = "<group>"; };
 		C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharacterDataStoreProtocol.swift; sourceTree = "<group>"; };
 		C4086D602BB654B0006C6633 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		C4086D622BB6633E006C6633 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		C4086D642BB67E72006C6633 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C47C20732BB530E600D5DF65 /* MarvelShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C20762BB530E600D5DF65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47C20782BB530E600D5DF65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				C4086D102BB5502C006C6633 /* String+Extensions.swift */,
 				C4086D122BB5502C006C6633 /* Collection+Extensions.swift */,
+				C4086D622BB6633E006C6633 /* UserDefaults.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 			children = (
 				C47C20A92BB539A600D5DF65 /* View */,
 				C4086D382BB574D4006C6633 /* Secret.swift */,
+				C4086D642BB67E72006C6633 /* Constant.swift */,
 				C4086D602BB654B0006C6633 /* Defaults.swift */,
 			);
 			path = Reusable;
@@ -535,6 +541,7 @@
 				C4086D0B2BB55018006C6633 /* UICollectionView+Extensions.swift in Sources */,
 				C4086D292BB56A76006C6633 /* HTTPMethod.swift in Sources */,
 				C4086D152BB5502C006C6633 /* Collection+Extensions.swift in Sources */,
+				C4086D652BB67E72006C6633 /* Constant.swift in Sources */,
 				C4086D2E2BB56A76006C6633 /* MarvelAPIRequest.swift in Sources */,
 				C47C20A72BB537D500D5DF65 /* HomeContentViewController+CollectionView.swift in Sources */,
 				C4086D5F2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift in Sources */,
@@ -550,6 +557,7 @@
 				C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */,
 				C4086D302BB56A76006C6633 /* SearchCharacterAPIRequest.swift in Sources */,
 				C4086D612BB654B0006C6633 /* Defaults.swift in Sources */,
+				C4086D632BB6633E006C6633 /* UserDefaults.swift in Sources */,
 				C47C20992BB5334900D5DF65 /* HomeContentFavoriteViewModel.swift in Sources */,
 				C4086D0A2BB55018006C6633 /* UIColor+Extensions.swift in Sources */,
 				C4086D132BB5502C006C6633 /* String+Extensions.swift in Sources */,

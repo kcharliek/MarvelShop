@@ -53,13 +53,14 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
         input.characterDidTapped
             .withUnretained(self)
             .sink { (owner, character) in
-                owner.repository.toggleFavorite(character.id)
+                owner.repository.toggleFavorite(character)
             }
             .store(in: &cancelBag)
 
         return .init(
             presenting: .init(
                 shouldEnableSearch: Just<Bool>(true).eraseToAnyPublisher(),
+                shouldEnableRefresh: Just<Bool>(true).eraseToAnyPublisher(),
                 characters: repository.characters,
                 favoriteCharacterIds: repository.favoriteCharacterIds,
                 isLoading: repository.isLoading,

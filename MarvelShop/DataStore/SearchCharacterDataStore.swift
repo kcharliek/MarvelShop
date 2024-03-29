@@ -25,10 +25,8 @@ enum SearchCharacterDataStoreError: Error {
 
 final class SearchCharacterDataStore: SearchCharacterDataStoreProtocol {
 
-    private let size: Int = 20
-
     func searchCharacter(query: String, page: Int) -> AnyPublisher<SearchCharacterResult, Error> {
-        let request = SearchCharacterAPIRequest(query: query, page: page, size: size)
+        let request = SearchCharacterAPIRequest(query: query, page: page, size: Constant.pageSize)
 
         return API.request(request)
             .tryMap {

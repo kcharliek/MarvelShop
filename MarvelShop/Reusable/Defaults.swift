@@ -6,18 +6,45 @@
 //
 
 import Foundation
+import Combine
 
 
-enum Defaults {
+final class Defaults {
 
-    static var favoriteCharacterIds: [Int] {
-        get {
-            (UserDefaults.standard.array(forKey: favoriteCharacterIdsKey) as? [Int]) ?? []
-        }
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: favoriteCharacterIdsKey)
+    static let shared: Defaults = .init()
+
+    private let userDefaults: UserDefaults = .standard
+
+    private lazy var _favoriteCharactersPublisher: CurrentValueSubject<[MCharacter], Never> = {
+        let objects: [MCharacter] = (try? userDefaults.objectCodable(forKey: favoriteCharactersKey)) ?? []
+        return CurrentValueSubject<[MCharacter], Never>.init(objects)
+    }()
+
+    private init() { }
+
+}
+
+extension Defaults {
+
+    var favoriteCharactersPublisher: AnyPublisher<[MCharacter], Never> {
+        _favoriteCharactersPublisher.eraseToAnyPublisher()
+    }
+
+    func fetchFavoriteCharacters() -> [MCharacter] {
+        _favoriteCharactersPublisher.value
+    }
+
+    func setFavoriteCharacters(_ newValue: [MCharacter]) {
+        do {
+            try userDefaults.setCodable(newValue, forKey: favoriteCharactersKey)
+            _favoriteCharactersPublisher.send(newValue)
+        } catch {
+            print("Error - set favoriteCharacters - \(error)")
         }
     }
-    private static let favoriteCharacterIdsKey = "favorite_character_ids"
+
+    private var favoriteCharactersKey: String {
+        "favorite_characters"
+    }
 
 }

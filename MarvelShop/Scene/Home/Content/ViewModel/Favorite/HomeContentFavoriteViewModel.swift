@@ -9,14 +9,30 @@ import Foundation
 import Combine
 
 
-struct HomeContentFavoriteViewModel: HomeContentViewModelProtocol {
-    
+final class HomeContentFavoriteViewModel: HomeContentViewModelProtocol {
+
+    private let repository: HomeContentFavoriteRepositoryProtocol
+
+    private var cancelBag: Set<AnyCancellable> = .init()
+
+    init(repository: HomeContentFavoriteRepositoryProtocol = HomeContentFavoriteRepository()) {
+        self.repository = repository
+    }
+
     func transform(_ input: HomeContentState.Input) -> HomeContentState.Output {
+        input.characterDidTapped
+            .withUnretained(self)
+            .sink { (owner, character) in
+                owner.repository.removeFavorite(character)
+            }
+            .store(in: &cancelBag)
+
         return .init(
             presenting: .init(
                 shouldEnableSearch: Just<Bool>(false).eraseToAnyPublisher(),
-                characters: .empty(), 
-                favoriteCharacterIds: .empty(),
+                shouldEnableRefresh: Just<Bool>(false).eraseToAnyPublisher(),
+                characters: repository.characters,
+                favoriteCharacterIds: repository.characters.map { $0.map(\.id) }.eraseToAnyPublisher(),
                 isLoading: .empty(),
                 error: .empty()
             ),
