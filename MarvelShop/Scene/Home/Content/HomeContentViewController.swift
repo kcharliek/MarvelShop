@@ -84,10 +84,14 @@ final class HomeContentViewController: UIViewController {
     // MARK: - Methods
 
     private func bind() {
+        let _queryPublisher = queryPublisher
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .eraseToAnyPublisher()
+
         let output = viewModel.transform(
             .init(
                 viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
-                query: queryPublisher.eraseToAnyPublisher(),
+                query: _queryPublisher,
                 refresh: refreshPublisher.eraseToAnyPublisher(),
                 loadNext: loadNextPublisher.eraseToAnyPublisher(),
                 characterDidTapped: characterDidTappedPublisher.eraseToAnyPublisher()

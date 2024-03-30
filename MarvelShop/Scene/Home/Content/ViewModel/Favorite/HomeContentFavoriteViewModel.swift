@@ -19,7 +19,7 @@ final class HomeContentFavoriteViewModel: HomeContentViewModelProtocol {
 
     // MARK: - Initializer
 
-    init(repository: HomeContentFavoriteRepositoryProtocol = HomeContentFavoriteRepository()) {
+    init(repository: HomeContentFavoriteRepositoryProtocol) {
         self.repository = repository
     }
 

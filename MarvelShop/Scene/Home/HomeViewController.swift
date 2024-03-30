@@ -18,25 +18,23 @@ final class HomeViewController: UIViewController {
         return vc
     }()
 
-    private let searchContentViewController: HomeContentViewController = {
-        let viewModel = HomeContentSearchViewModel()
-
-        let vc = HomeContentViewController(viewModel: viewModel)
+    private lazy var searchContentViewController: HomeContentViewController = {
+        let vc = HomeContentViewController(viewModel: searchContentViewModel)
 
         vc.tabBarItem = .init(title: "SEARCH", image: UIImage(named: "search"), tag: 0)
 
         return vc
     }()
+    @Inject("search") private var searchContentViewModel: HomeContentViewModelProtocol
 
-    private let favoriteContentViewController: HomeContentViewController = {
-        let viewModel = HomeContentFavoriteViewModel()
-
-        let vc = HomeContentViewController(viewModel: viewModel)
+    private lazy var favoriteContentViewController: HomeContentViewController = {
+        let vc = HomeContentViewController(viewModel: favoriteContentViewModel)
 
         vc.tabBarItem = .init(title: "FAVORITE", image: UIImage(named: "favorite"), tag: 1)
 
         return vc
     }()
+    @Inject("favorite") private var favoriteContentViewModel: HomeContentViewModelProtocol
 
     // MARK: - Initializer
 

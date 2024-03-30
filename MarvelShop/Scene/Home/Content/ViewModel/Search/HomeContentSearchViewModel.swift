@@ -19,7 +19,7 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
 
     // MARK: - Initializer
 
-    init(repository: HomeContentSearchRepositoryProtocol = HomeContentSearchRepository()) {
+    init(repository: HomeContentSearchRepositoryProtocol) {
         self.repository = repository
     }
 
@@ -34,7 +34,6 @@ final class HomeContentSearchViewModel: HomeContentViewModelProtocol {
             .store(in: &cancelBag)
 
         input.query
-            .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .filter { $0.isEmpty || $0.count >= 2 }
             .withUnretained(self)
             .sink { (owner, query) in

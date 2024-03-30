@@ -16,7 +16,8 @@ final class InMemoryFavoriteCharacterDataStore: FavoriteCharacterDataStoreProtoc
     // MARK: - Properties
 
     var favoriteCharacters: AnyPublisher<[MCharacter], Never> {
-        _favoriteCharacters.eraseToAnyPublisher()
+        _favoriteCharacters
+            .eraseToAnyPublisher()
     }
 
     private let _favoriteCharacters: CurrentValueSubject<[MCharacter], Never> = .init([])

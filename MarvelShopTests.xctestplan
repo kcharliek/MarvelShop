@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "C3280FC1-BDBC-49C4-A9BF-9DA4F80FBF08",
+      "id" : "1A7A5444-283C-422C-A070-B972995D0C24",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -9,17 +9,13 @@
     }
   ],
   "defaultOptions" : {
-    "targetForVariableExpansion" : {
-      "containerPath" : "container:MarvelShop.xcodeproj",
-      "identifier" : "C47C20722BB530E600D5DF65",
-      "name" : "MarvelShop"
-    }
+
   },
   "testTargets" : [
     {
       "target" : {
         "containerPath" : "container:MarvelShop.xcodeproj",
-        "identifier" : "C4086D432BB58781006C6633",
+        "identifier" : "C461573F2BB83B330064B423",
         "name" : "MarvelShopTests"
       }
     }

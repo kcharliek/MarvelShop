@@ -21,7 +21,6 @@
 		C4086D2F2BB56A76006C6633 /* SearchCharacterAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D242BB56A76006C6633 /* SearchCharacterAPIResponse.swift */; };
 		C4086D302BB56A76006C6633 /* SearchCharacterAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D252BB56A76006C6633 /* SearchCharacterAPIRequest.swift */; };
 		C4086D392BB574D4006C6633 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D382BB574D4006C6633 /* Secret.swift */; };
-		C4086D4F2BB5884F006C6633 /* MURLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */; };
 		C4086D542BB593D7006C6633 /* SearchCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D532BB593D7006C6633 /* SearchCharacterDataStore.swift */; };
 		C4086D5C2BB65318006C6633 /* DefaultsFavoriteCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D5B2BB65318006C6633 /* DefaultsFavoriteCharacterDataStore.swift */; };
 		C4086D5F2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */; };
@@ -44,6 +43,11 @@
 		C46157292BB6B1A50064B423 /* NetworkHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157282BB6B1A50064B423 /* NetworkHistory.swift */; };
 		C461572B2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461572A2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift */; };
 		C461572D2BB6B3080064B423 /* NetworkDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461572C2BB6B3080064B423 /* NetworkDebugger.swift */; };
+		C46157342BB6C4850064B423 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157332BB6C4850064B423 /* ViewModelAssembly.swift */; };
+		C461574B2BB83C2F0064B423 /* MURLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */; };
+		C461574C2BB83C320064B423 /* TMockSearchCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157372BB831AF0064B423 /* TMockSearchCharacterDataStore.swift */; };
+		C461574D2BB83C340064B423 /* MockFavoriteCharacterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157392BB831BC0064B423 /* MockFavoriteCharacterDataStore.swift */; };
+		C461574E2BB83C370064B423 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46157312BB6C3660064B423 /* SearchViewModelTests.swift */; };
 		C47C20772BB530E600D5DF65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20762BB530E600D5DF65 /* AppDelegate.swift */; };
 		C47C20792BB530E600D5DF65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C20782BB530E600D5DF65 /* SceneDelegate.swift */; };
 		C47C20802BB530E700D5DF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47C207F2BB530E700D5DF65 /* Assets.xcassets */; };
@@ -66,7 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C4086D482BB58781006C6633 /* PBXContainerItemProxy */ = {
+		C46157442BB83B330064B423 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C47C206B2BB530E600D5DF65 /* Project object */;
 			proxyType = 1;
@@ -93,9 +97,7 @@
 		C4086D3D2BB57B89006C6633 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		C4086D3E2BB57B92006C6633 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		C4086D3F2BB57BD2006C6633 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
-		C4086D442BB58781006C6633 /* MarvelShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4086D4E2BB5884F006C6633 /* MURLSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MURLSessionTests.swift; sourceTree = "<group>"; };
-		C4086D522BB58D5C006C6633 /* MarvelShop.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MarvelShop.xctestplan; sourceTree = "<group>"; };
 		C4086D532BB593D7006C6633 /* SearchCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDataStore.swift; sourceTree = "<group>"; };
 		C4086D5B2BB65318006C6633 /* DefaultsFavoriteCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsFavoriteCharacterDataStore.swift; sourceTree = "<group>"; };
 		C4086D5E2BB6540F006C6633 /* FavoriteCharacterDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharacterDataStoreProtocol.swift; sourceTree = "<group>"; };
@@ -117,6 +119,12 @@
 		C46157282BB6B1A50064B423 /* NetworkHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHistory.swift; sourceTree = "<group>"; };
 		C461572A2BB6B1E70064B423 /* DebugNetworkiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugNetworkiDetailViewController.swift; sourceTree = "<group>"; };
 		C461572C2BB6B3080064B423 /* NetworkDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDebugger.swift; sourceTree = "<group>"; };
+		C46157312BB6C3660064B423 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		C46157332BB6C4850064B423 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
+		C46157372BB831AF0064B423 /* TMockSearchCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMockSearchCharacterDataStore.swift; sourceTree = "<group>"; };
+		C46157392BB831BC0064B423 /* MockFavoriteCharacterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteCharacterDataStore.swift; sourceTree = "<group>"; };
+		C46157402BB83B330064B423 /* MarvelShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C461574A2BB83BFF0064B423 /* MarvelShopTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MarvelShopTests.xctestplan; sourceTree = "<group>"; };
 		C47C20732BB530E600D5DF65 /* MarvelShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C20762BB530E600D5DF65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47C20782BB530E600D5DF65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +147,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C4086D412BB58781006C6633 /* Frameworks */ = {
+		C461573D2BB83B330064B423 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -264,6 +272,7 @@
 		C4086D452BB58781006C6633 /* MarvelShopTests */ = {
 			isa = PBXGroup;
 			children = (
+				C461572E2BB6C34D0064B423 /* Scene */,
 				C4086D4D2BB587D8006C6633 /* Networking */,
 			);
 			path = MarvelShopTests;
@@ -299,6 +308,7 @@
 		C4086D682BB68EB6006C6633 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				C46157332BB6C4850064B423 /* ViewModelAssembly.swift */,
 				C4086D782BB69187006C6633 /* DataStoreAssembly.swift */,
 				C4086D7A2BB6937F006C6633 /* NetworkingAssembly.swift */,
 			);
@@ -336,9 +346,36 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		C461572E2BB6C34D0064B423 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				C461572F2BB6C3510064B423 /* Home */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		C461572F2BB6C3510064B423 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C46157302BB6C3570064B423 /* Search */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C46157302BB6C3570064B423 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C46157312BB6C3660064B423 /* SearchViewModelTests.swift */,
+				C46157372BB831AF0064B423 /* TMockSearchCharacterDataStore.swift */,
+				C46157392BB831BC0064B423 /* MockFavoriteCharacterDataStore.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		C47C206A2BB530E600D5DF65 = {
 			isa = PBXGroup;
 			children = (
+				C461574A2BB83BFF0064B423 /* MarvelShopTests.xctestplan */,
 				C47C20752BB530E600D5DF65 /* MarvelShop */,
 				C4086D452BB58781006C6633 /* MarvelShopTests */,
 				C47C20742BB530E600D5DF65 /* Products */,
@@ -349,7 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				C47C20732BB530E600D5DF65 /* MarvelShop.app */,
-				C4086D442BB58781006C6633 /* MarvelShopTests.xctest */,
+				C46157402BB83B330064B423 /* MarvelShopTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,7 +405,6 @@
 				C47C20B32BB53AA800D5DF65 /* Extension */,
 				C4B021792BB53DB300AC7A8B /* Resource */,
 				C47C20842BB530E700D5DF65 /* Info.plist */,
-				C4086D522BB58D5C006C6633 /* MarvelShop.xctestplan */,
 			);
 			path = MarvelShop;
 			sourceTree = "<group>";
@@ -509,22 +545,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4086D432BB58781006C6633 /* MarvelShopTests */ = {
+		C461573F2BB83B330064B423 /* MarvelShopTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4086D4A2BB58781006C6633 /* Build configuration list for PBXNativeTarget "MarvelShopTests" */;
+			buildConfigurationList = C46157462BB83B330064B423 /* Build configuration list for PBXNativeTarget "MarvelShopTests" */;
 			buildPhases = (
-				C4086D402BB58781006C6633 /* Sources */,
-				C4086D412BB58781006C6633 /* Frameworks */,
-				C4086D422BB58781006C6633 /* Resources */,
+				C461573C2BB83B330064B423 /* Sources */,
+				C461573D2BB83B330064B423 /* Frameworks */,
+				C461573E2BB83B330064B423 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C4086D492BB58781006C6633 /* PBXTargetDependency */,
+				C46157452BB83B330064B423 /* PBXTargetDependency */,
 			);
 			name = MarvelShopTests;
 			productName = MarvelShopTests;
-			productReference = C4086D442BB58781006C6633 /* MarvelShopTests.xctest */;
+			productReference = C46157402BB83B330064B423 /* MarvelShopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C47C20722BB530E600D5DF65 /* MarvelShop */ = {
@@ -560,7 +596,7 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					C4086D432BB58781006C6633 = {
+					C461573F2BB83B330064B423 = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = C47C20722BB530E600D5DF65;
 					};
@@ -588,13 +624,13 @@
 			projectRoot = "";
 			targets = (
 				C47C20722BB530E600D5DF65 /* MarvelShop */,
-				C4086D432BB58781006C6633 /* MarvelShopTests */,
+				C461573F2BB83B330064B423 /* MarvelShopTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C4086D422BB58781006C6633 /* Resources */ = {
+		C461573E2BB83B330064B423 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -613,11 +649,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C4086D402BB58781006C6633 /* Sources */ = {
+		C461573C2BB83B330064B423 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4086D4F2BB5884F006C6633 /* MURLSessionTests.swift in Sources */,
+				C461574C2BB83C320064B423 /* TMockSearchCharacterDataStore.swift in Sources */,
+				C461574B2BB83C2F0064B423 /* MURLSessionTests.swift in Sources */,
+				C461574E2BB83C370064B423 /* SearchViewModelTests.swift in Sources */,
+				C461574D2BB83C340064B423 /* MockFavoriteCharacterDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +666,7 @@
 			files = (
 				C46157272BB6B1640064B423 /* DebugNetworkViewController.swift in Sources */,
 				C4086D2A2BB56A76006C6633 /* API.swift in Sources */,
+				C46157342BB6C4850064B423 /* ViewModelAssembly.swift in Sources */,
 				C4086D392BB574D4006C6633 /* Secret.swift in Sources */,
 				C4086DCB2BB6AC32006C6633 /* DebugViewController.swift in Sources */,
 				C4086D2D2BB56A76006C6633 /* MURLSession.swift in Sources */,
@@ -680,10 +720,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C4086D492BB58781006C6633 /* PBXTargetDependency */ = {
+		C46157452BB83B330064B423 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C47C20722BB530E600D5DF65 /* MarvelShop */;
-			targetProxy = C4086D482BB58781006C6633 /* PBXContainerItemProxy */;
+			targetProxy = C46157442BB83B330064B423 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -699,44 +739,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C4086D4B2BB58781006C6633 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4086D3D2BB57B89006C6633 /* Debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MarvelShopTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarvelShop";
-			};
-			name = Debug;
-		};
-		C4086D4C2BB58781006C6633 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4086D3E2BB57B92006C6633 /* Release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MarvelShopTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarvelShop";
-			};
-			name = Release;
-		};
 		C4086DBC2BB69D35006C6633 /* Sample */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C4086D9C2BB698DB006C6633 /* Sample.xcconfig */;
@@ -832,9 +834,26 @@
 			};
 			name = Sample;
 		};
-		C4086DBF2BB69D35006C6633 /* Sample */ = {
+		C46157472BB83B330064B423 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4086D9C2BB698DB006C6633 /* Sample.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarvelShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarvelShop";
+			};
+			name = Debug;
+		};
+		C46157482BB83B330064B423 /* Sample */ = {
+			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -850,6 +869,24 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarvelShop";
 			};
 			name = Sample;
+		};
+		C46157492BB83B330064B423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarvelShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarvelShop";
+			};
+			name = Release;
 		};
 		C47C20852BB530E700D5DF65 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1037,12 +1074,12 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4086D4A2BB58781006C6633 /* Build configuration list for PBXNativeTarget "MarvelShopTests" */ = {
+		C46157462BB83B330064B423 /* Build configuration list for PBXNativeTarget "MarvelShopTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4086D4B2BB58781006C6633 /* Debug */,
-				C4086DBF2BB69D35006C6633 /* Sample */,
-				C4086D4C2BB58781006C6633 /* Release */,
+				C46157472BB83B330064B423 /* Debug */,
+				C46157482BB83B330064B423 /* Sample */,
+				C46157492BB83B330064B423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

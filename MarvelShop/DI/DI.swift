@@ -16,11 +16,11 @@ final class DI {
     private let assembler: Assembler
 
     private init() {
-        Container.loggingFunction = nil
         assembler = Assembler(
             [
-                NetworkingAssembly(),
-                DataStoreAssembly()
+                ViewModelAssembly(),
+                DataStoreAssembly(),
+                NetworkingAssembly()
             ],
             container: container
         )
