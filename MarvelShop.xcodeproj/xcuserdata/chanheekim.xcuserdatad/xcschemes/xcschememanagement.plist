@@ -9,24 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MarvelShopTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>MockSample.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Sample-iOS (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Sample-iOS (Playground) 2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Sample-iOS (Playground) 3.xcscheme</key>
 		<dict>
@@ -54,7 +59,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -70,6 +75,11 @@
 			<true/>
 		</dict>
 		<key>C4086DA02BB6993C006C6633</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C461573F2BB83B330064B423</key>
 		<dict>
 			<key>primary</key>
 			<true/>

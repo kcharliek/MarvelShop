@@ -30,6 +30,7 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
     // Stream
     var characters: AnyPublisher<[MCharacter], Never> {
         _characters
+            .dropFirst()
             .map { $0.sorted(by: { $0.key < $1.key }).flatMap { $1 } }
             .eraseToAnyPublisher()
     }
@@ -40,6 +41,7 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
     }
     var isLoading: AnyPublisher<Bool, Never> {
         loadingCount
+            .dropFirst()
             .map { $0 > 0 }
             .removeDuplicates()
             .eraseToAnyPublisher()
@@ -54,13 +56,23 @@ final class HomeContentSearchRepository: HomeContentSearchRepositoryProtocol {
     private var cancelBag: Set<AnyCancellable> = .init()
 
     // DataStore
-    @Inject private var dataStore: SearchCharacterDataStoreProtocol
-    @Inject private var favoriteDataStore: FavoriteCharacterDataStoreProtocol
+    private let dataStore: SearchCharacterDataStoreProtocol
+    private let favoriteDataStore: FavoriteCharacterDataStoreProtocol
 
     // State
     private var query: String = ""
     private var currentPage: Int = 0
     private var hasNext: Bool = true
+
+    // MARK: - Initializer
+
+    init(
+        dataStore: SearchCharacterDataStoreProtocol,
+        favoriteDataStore: FavoriteCharacterDataStoreProtocol
+    ) {
+        self.dataStore = dataStore
+        self.favoriteDataStore = favoriteDataStore
+    }
 
     // MARK: - Methods
 

@@ -11,7 +11,7 @@ import Combine
 
 protocol FavoriteCharacterDataStoreProtocol {
 
-    var favoriteCharacters: AnyPublisher<[MCharacter], Never> { get}
+    var favoriteCharacters: AnyPublisher<[MCharacter], Never> { get }
 
     func isFavorite(_ character: MCharacter) -> Bool
 

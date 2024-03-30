@@ -25,7 +25,13 @@ final class HomeContentFavoriteRepository: HomeContentFavoriteRepositoryProtocol
         dataStore.favoriteCharacters
     }
 
-    @Inject private var dataStore: FavoriteCharacterDataStoreProtocol
+    private let dataStore: FavoriteCharacterDataStoreProtocol
+
+    // MARK: - Initializer
+
+    init(dataStore: FavoriteCharacterDataStoreProtocol) {
+        self.dataStore = dataStore
+    }
 
     // MARK: - Methods
 
