@@ -1,8 +1,6 @@
-# ShopLive iOS Project Report
+# MarvelShop
 
-## 개요
-
-요구된 모든 기능 및 가산점 항목을 구현했으며, 본 문서에는 본인이 고민한 것들에 대해 기술합니다.
+> UIKit / MVVM / CleanArchitecture
 
 ## 목차
 
@@ -14,7 +12,6 @@
 6. Favorite 기록을 위한 Persistant Storage
 7. Unit Test
 8. Secret Key 관리
-9. Git 전략
 
 ## 1. 기술 스택
 
@@ -93,8 +90,7 @@
 
 ## 6. Favorite 기록을 위한 Persistant Storage
 
-- 개발 경험에 비추어 생각했을 때, Favorite 리소스는 향후 Query 기반 조회가 필요할 것으로 예상되며, 앱의 핵심 컨텐츠인 만큼 CRUD 빈도가 높아서 성능 관점에서 고려해야할 것으로 보입니다. 이를 근거로 언젠가 CoreData 등 Database의 적용이 필요할 것으로 생각합니다.
-- 하지만 현재 스펙에는 최대 5개만 기록한다고 명시되어있고, 과제 상황임을 고려했을 때, 구현 및 유지보수 부하가 높은 Database 를 사용하는 것은 현시점 오버엔지니어링이라는 판단입니다. 이를 근거로 Key-Value 기반의 UserDefaults 를 선택했습니다. 또한 UserDefaults 구현체와 의존성 분리되어있으므로, 향후 Database로의 이주 또한 문제 없을 것입니다.
+- 개발 경험에 비추어 생각했을 때, Favorite 리소스는 향후 Query 기반 조회가 필요할 것으로 예상되며, 앱의 핵심 컨텐츠인 만큼 CRUD 빈도가 높아서 성능 관점에서 고려해야할 것으로 보입니다. 이를 근거로 향후 CoreData 등 Database의 적용이 필요할 것으로 생각합니다. 의존성 분리 되어있으므로, 이주에 문제 없을 것 입니다.
 
 ## 7. Unit Test
 
